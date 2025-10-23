@@ -113,10 +113,32 @@ class _LoginActivityState extends State<LoginActivity> {
                       ),
                     );
                   }, 
+                  child: Text("Login"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(10),
+                    ),
+                  ),
                 ),
               ],
             ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Belum Punya Akun? "),
+                  Text("Daftar di sini",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),)
+                ],
+              ),
+            )
           ],
         ),
       ),
