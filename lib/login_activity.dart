@@ -10,6 +10,7 @@ class LoginActivity extends StatefulWidget {
 
 class _LoginActivityState extends State<LoginActivity> {
   bool _showpassword = true;
+  bool _keepLoggedIn = true;
   final TextEditingController _emailcontroller = 
   TextEditingController();
   final TextEditingController _passwordcontroller = 
@@ -39,6 +40,7 @@ class _LoginActivityState extends State<LoginActivity> {
               "Enter your ID and password to sign in!",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.grey),
               ),
+              
 
             Padding(padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -78,18 +80,30 @@ class _LoginActivityState extends State<LoginActivity> {
                   ),
                 ),
 
-                Text(
-              "Keep me logged in",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black),
+                Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: _keepLoggedIn, 
+                    onChanged: (value) {
+                      setState(() {
+                        _keepLoggedIn = value!;
+                      });
+                    }
+                  ),
+                  Text("Keep me logged in"),
+                ],
               ),
+            )
               ],
             ), 
             ),
+
             Padding(padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8,
               children: [
                 ElevatedButton(
                   onPressed: () {
