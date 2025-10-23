@@ -9,10 +9,17 @@ class LoginActivity extends StatelessWidget {
       appBar: AppBar(
         title: Text("Login Activity"),
       ),
-      body: Column(
-        children: [
-          Image(image: AssetImage("gambar/Logo.png"), width: 200, height: 150),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Image(image: AssetImage("gambar/Logo.png"), width: 200, height: 150),
+            SizedBox(height: 12),
+            Text(
+              "LKS MART",
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+          ],
+        ),
       ),
     );
   }
