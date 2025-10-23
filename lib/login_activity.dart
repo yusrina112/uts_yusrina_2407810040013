@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_yusrina_2407810040013/menu.dart';
 
 class LoginActivity extends StatefulWidget {
   const LoginActivity({super.key});
@@ -82,9 +83,26 @@ class _LoginActivityState extends State<LoginActivity> {
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black),
               ),
               ],
+            ), 
+            ),
+            Padding(padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 8,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Menu(),
+                      ),
+                    );
+                  }, 
+                ),
+              ],
             ),
             ),
-
           ],
         ),
       ),
