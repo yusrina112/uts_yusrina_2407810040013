@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_yusrina_2407810040013/daftar.dart';
 import 'package:uts_yusrina_2407810040013/menu.dart';
 
 class LoginActivity extends StatefulWidget {
@@ -21,125 +22,132 @@ class _LoginActivityState extends State<LoginActivity> {
       appBar: AppBar(
         title: Text("Login Activity"),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Image(image: AssetImage("gambar/Logo.png"), width: 200, height: 150),
-            SizedBox(height: 12),
-            Text(
-              "LKS MART",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blueAccent),
-            ),
-            
-            Text(
-              "Sign In",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
-              ),
-
-            Text(
-              "Enter your ID and password to sign in!",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.grey),
+  
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Image(image: AssetImage("gambar/Logo.png"), width: 200, height: 150),
+              SizedBox(height: 12),
+              Text(
+                "LKS MART",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blueAccent),
               ),
               
-
-            Padding(padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8,
-              children: [
-                Text("Email"),
-                TextField(
-                  controller: _emailcontroller,
-                  decoration: InputDecoration(
-                    hintText: "email",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                  ),
+              Text(
+                "Sign In",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
-                Text("Password*"),
-                TextField(
-                  controller: _passwordcontroller,
-                  obscureText: _showpassword,
-                  decoration: InputDecoration(
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          _showpassword = !_showpassword;
-                        });
-                      },
-                      icon: Icon(
-                        _showpassword ? Icons.remove_red_eye : Icons.visibility_off,
+
+              Text(
+                "Enter your ID and password to sign in!",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.grey),
+                ),
+                
+
+              Padding(padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8,
+                children: [
+                  Text("Email"),
+                  TextField(
+                    controller: _emailcontroller,
+                    decoration: InputDecoration(
+                      hintText: "email",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8)
                       ),
                     ),
-                    hintText: "Min 8 character",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                  ),
+                  Text("Password*"),
+                  TextField(
+                    controller: _passwordcontroller,
+                    obscureText: _showpassword,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _showpassword = !_showpassword;
+                          });
+                        },
+                        icon: Icon(
+                          _showpassword ? Icons.remove_red_eye : Icons.visibility_off,
+                        ),
+                      ),
+                      hintText: "Min 8 character",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ),
-                ),
 
-                Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
+                  Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: _keepLoggedIn, 
+                      onChanged: (value) {
+                        setState(() {
+                          _keepLoggedIn = value!;
+                        });
+                      }
+                    ),
+                    Text("Keep me logged in"),
+                  ],
+                ),
+              )
+                ],
+              ), 
+              ),
+
+              Padding(padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Checkbox(
-                    value: _keepLoggedIn, 
-                    onChanged: (value) {
-                      setState(() {
-                        _keepLoggedIn = value!;
-                      });
-                    }
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Menu(),
+                        ),
+                      );
+                    }, 
+                    child: Text("Login"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueAccent,
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(10),
+                      ),
+                    ),
                   ),
-                  Text("Keep me logged in"),
                 ],
               ),
-            )
-              ],
-            ), 
-            ),
-
-            Padding(padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Menu(),
-                      ),
-                    );
-                  }, 
-                  child: Text("Login"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(10),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            ),
-            Padding(
+              ),
+              Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Belum Punya Akun? "),
-                  Text("Daftar di sini",
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),)
+                  TextButton(onPressed: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) => Daftar()),
+                      );
+                  }, 
+                  child: Text("Daftar di sini"),
+                  ),
                 ],
               ),
-            )
-          ],
+            ),
+            ],
+          ),
         ),
       ),
     );
