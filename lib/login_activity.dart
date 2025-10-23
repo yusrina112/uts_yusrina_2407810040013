@@ -9,7 +9,10 @@ class LoginActivity extends StatefulWidget {
 
 class _LoginActivityState extends State<LoginActivity> {
   bool _showpassword = true;
-  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _emailcontroller = 
+  TextEditingController();
+  final TextEditingController _passwordcontroller = 
+  TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +54,35 @@ class _LoginActivityState extends State<LoginActivity> {
                       borderRadius: BorderRadius.circular(8)
                     ),
                   ),
-                )
+                ),
+                Text("Password*"),
+                TextField(
+                  controller: _passwordcontroller,
+                  obscureText: _showpassword,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _showpassword = !_showpassword;
+                        });
+                      },
+                      icon: Icon(
+                        _showpassword ? Icons.remove_red_eye : Icons.visibility_off,
+                      ),
+                    ),
+                    hintText: "Min 8 character",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
+
+                Text(
+              "Keep me logged in",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black),
+              ),
+
+              
               ],
             ),
             ),
