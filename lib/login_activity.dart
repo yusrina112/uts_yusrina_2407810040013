@@ -81,11 +81,10 @@ class _LoginActivityState extends State<LoginActivity> {
               "Keep me logged in",
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal, color: Colors.black),
               ),
-
-              
               ],
             ),
             ),
+
           ],
         ),
       ),
